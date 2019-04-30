@@ -21,13 +21,14 @@ class RestaurantsController < ApplicationController
 
   private
 
-    def filter_by_category
-      @restaurants = @restaurants.select do |r|
-      r.category.title == params[:category]
-    end
-
-    def set_restaurant
-      @restaurant = Restaurant.find_by(id: params[:id])
+  def filter_by_category
+    @restaurants = @restaurants.select do |r|
+    r.category.title == params[:category]
     end
   end
+
+  def set_restaurant
+    @restaurant = Restaurant.find_by(id: params[:id])
+  end
+
 end
