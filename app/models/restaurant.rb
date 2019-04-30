@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Restaurant < ApplicationRecord
   belongs_to :category
   has_many :product_categories
@@ -16,9 +18,9 @@ class Restaurant < ApplicationRecord
   has_one_attached :image
 
   geocoded_by :address
- 
+
   after_validation :geocode
-  
+
   def address
     [street, number, city, state].compact.join(', ')
   end

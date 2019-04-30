@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: :show
 
@@ -23,12 +25,11 @@ class RestaurantsController < ApplicationController
 
   def filter_by_category
     @restaurants = @restaurants.select do |r|
-    r.category.title == params[:category]
+      r.category.title == params[:category]
     end
   end
 
   def set_restaurant
     @restaurant = Restaurant.find_by(id: params[:id])
   end
-
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateOrders < ActiveRecord::Migration[5.2]
   def change
     create_table :orders do |t|
@@ -7,7 +9,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.string :address
       t.integer :status, default: 0
       t.references :restaurant, foreign_key: true
-      
+
       t.timestamps
     end
   end
