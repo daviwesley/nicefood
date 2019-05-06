@@ -160,3 +160,18 @@ prod = Product.create!(name: 'Salada de quinoa', price: 20.90, description: 'Alf
 prod.image.attach(io: File.open('public/images/products/salada-de-quinoa.jpg'), filename: 'salada-de-quinoa.jpg')
 prod = Product.create!(name: 'Coleslaw', price: 11, description: 'Repolho roxo, couve, cenoura, cebola, maionese de castanha e xylitol', product_category: pc)
 prod.image.attach(io: File.open('public/images/products/coleslaw2.jpeg'), filename: 'coleslaw2.jpeg')
+
+
+path_image = 'public/images/restaurants/ru_ufcrussas.jpg'
+r = Restaurant.create!(
+  name: 'Restaurante Universitário do Campus de Russas',
+  description: 'Temos as melhores refeições para os estudante, Quanta-feira é dia de feijoada ;).',
+  status: 'open', delivery_tax: 8.30,
+  state: 'CE', city: 'Russas', street: 'Av Cel Araújo Lima',
+  number: '1358', neighborhood: 'Centro', category_id: 4
+)
+r.image.attach(io: File.open(path_image), filename: 'ru_ufcrussas.jpg')
+pc = ProductCategory.create!(title: 'Saladas, molhos e wraps', restaurant: r)
+prod = Product.create!(name: 'Salada de quinoa', price: 1.50, description: 'Alface americana, roxa, frisee, quinoa cozida, cenoura, tomate, damasco dessecado, amendoa crua.', product_category: pc)
+prod.image.attach(io: File.open('public/images/products/salada-de-quinoa.jpg'), filename: 'salada-de-quinoa.jpg')
+
